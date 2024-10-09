@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Extractor</title>
+</head>
+
+<body>
+    <h1>Upload Excel File</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx, .xls" required />
+        <button type="submit">Upload</button>
+    </form>
+    <pre id="result"></pre>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/upload/aws', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            const jsondata = JSON.stringify(data, null, 2);
+            document.getElementById('result').textContent = jsondata;
+            console.log(jsondata.Name);
+        });
+    </script>
+</body>
+
+</html>
