@@ -1,7 +1,7 @@
 const Signup=()=>{
     return(
         <div>
-            hello from the sign in
+            hello from the sign up
         </div>
     )
 }
