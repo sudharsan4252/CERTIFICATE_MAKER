@@ -1,22 +1,15 @@
 "use client";
-export default function Home() {
+import * as React from "react";
+import WelcomeBar from "@/components/welcome"; // Ensure it's imported with the correct case
+import Topbar from "@/components/Topbar";
 
-    function helloguy() {
-      const a = true;
-      if (!a) {
-        throw new Error("worst code have been given");
-      }
-    };
-    try {
-      console.log("hello guy from actions");
-      helloguy()
-    } catch (error: any) {
-      console.log(error);
-    }
-  
+const Home: React.FC = () => {
   return (
     <div>
-      <div>helo gyys im wrkng</div>
+      <Topbar />
+      <WelcomeBar />
     </div>
   );
-}
+};
+
+export default Home;
